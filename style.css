@@ -2,8 +2,10 @@
     width: 10px;
     height: 10px;
     border: rgb(0, 0, 0) 1px solid;
+}
+
+.active {
     background-color: royalblue;
-    margin: 3px;
 }
 
 #game {
