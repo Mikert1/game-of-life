@@ -6,7 +6,8 @@ for (let i = 0; i < 30; i++) {
         let div = document.createElement('div');
         div.className = 'square';
         div.addEventListener('click', function() {
-            div.classList.toggle('active');
+            color = document.getElementById('colorPicker').value;
+            div.style.backgroundColor = color;
         });
         row.appendChild(div);
     }
