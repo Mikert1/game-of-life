@@ -1,0 +1,12 @@
+.square {
+    width: 10px;
+    height: 10px;
+    border: rgb(0, 0, 0) 1px solid;
+    background-color: royalblue;
+    margin: 3px;
+}
+
+#game {
+    display: flex;
+    flex-wrap: wrap;
+}
