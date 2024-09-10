@@ -36,6 +36,7 @@ function nextMove() {
             }
         } else {
             if (aliveNeighbors === 3) {
+                color = colorPicker.value;
                 newCellsArray.find(c => c.row === cell.row && c.col === cell.col).alife = true;
                 div.style.backgroundColor = color;
             }
@@ -53,10 +54,12 @@ for (let i = 0; i < 30; i++) {
         cellsArray.push({row: i, col: j, alife: false});
         div.addEventListener('click', function() {
             if (div.style.backgroundColor === '') {
+                color = colorPicker.value;
                 div.style.backgroundColor = color;
                 let cellIndex = cellsArray.findIndex(c => c.row === i && c.col === j);
                 cellsArray[cellIndex].alife = true;
             } else {
+                color = colorPicker.value;
                 div.style.backgroundColor = '';
                 let cellIndex = cellsArray.findIndex(c => c.row === i && c.col === j);
                 cellsArray[cellIndex].alife = false;
