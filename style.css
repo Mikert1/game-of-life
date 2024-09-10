@@ -4,10 +4,6 @@
     border: rgb(0, 0, 0) 1px solid;
 }
 
-.active {
-    background-color: royalblue;
-}
-
 #game {
     display: flex;
     flex-wrap: wrap;

@@ -1,21 +1,23 @@
+let cellsArray = [
+];
+
+let play = document.getElementById('play');
+let stop = document.getElementById('stop');
+let next = document.getElementById('next');
 let game = document.getElementById('game');
+
 let colorPicker = document.getElementById('colorPicker');
 let color = colorPicker.value;
-let next = document.getElementById('next');
-let cellsArray = [
-    {row: 0, col: 0, alife: false}
-];
-let play = document.getElementById('play');
 
 function nextMove() {
-    let newCellsArray = JSON.parse(JSON.stringify(cellsArray)); // Make a copy to avoid modifying the original while looping
+    let newCellsArray = JSON.parse(JSON.stringify(cellsArray));
 
     cellsArray.forEach(function(cell) {
         let aliveNeighbors = 0;
 
         for (let j = -1; j <= 1; j++) {
             for (let k = -1; k <= 1; k++) {
-                if (j === 0 && k === 0) continue; // Skip the cell itself
+                if (j === 0 && k === 0) continue;
                 let neighborRow = cell.row + j;
                 let neighborCol = cell.col + k;
                 let neighbor = cellsArray.find(c => c.row === neighborRow && c.col === neighborCol);
@@ -24,22 +26,21 @@ function nextMove() {
             }
         }
 
-        // Apply the rules of Conway's Game of Life:
         let div = document.querySelector('.row' + cell.row + '.col' + cell.col);
         if (cell.alife) {
             if (aliveNeighbors < 2 || aliveNeighbors > 3) {
-                newCellsArray.find(c => c.row === cell.row && c.col === cell.col).alife = false; // Cell dies
-                div.style.backgroundColor = ''; // Reset the background color
+                newCellsArray.find(c => c.row === cell.row && c.col === cell.col).alife = false;
+                div.style.backgroundColor = '';
             }
         } else {
             if (aliveNeighbors === 3) {
-                newCellsArray.find(c => c.row === cell.row && c.col === cell.col).alife = true; // Cell becomes alive
-                div.style.backgroundColor = color; // Set the background color
+                newCellsArray.find(c => c.row === cell.row && c.col === cell.col).alife = true;
+                div.style.backgroundColor = color;
             }
         }
     });
 
-    cellsArray = newCellsArray; // Update the original array with the new state
+    cellsArray = newCellsArray;
 }
 
 for (let i = 0; i < 30; i++) {
@@ -49,9 +50,15 @@ for (let i = 0; i < 30; i++) {
         div.classList.add('square', 'row' + i, 'col' + j);
         cellsArray.push({row: i, col: j, alife: false});
         div.addEventListener('click', function() {
-            div.style.backgroundColor = color;
-            let cellIndex = cellsArray.findIndex(c => c.row === i && c.col === j);
-            cellsArray[cellIndex].alife = true; // Update cell to be alive
+            if (div.style.backgroundColor === '') {
+                div.style.backgroundColor = color;
+                let cellIndex = cellsArray.findIndex(c => c.row === i && c.col === j);
+                cellsArray[cellIndex].alife = true;
+            } else {
+                div.style.backgroundColor = '';
+                let cellIndex = cellsArray.findIndex(c => c.row === i && c.col === j);
+                cellsArray[cellIndex].alife = false;
+            }
         });
         
         row.appendChild(div);
@@ -61,12 +68,24 @@ for (let i = 0; i < 30; i++) {
 
 colorPicker.addEventListener('change', function() {
     document.querySelectorAll('.square').forEach(function(div) {
-        if (div.style.backgroundColor !== '') {
-            div.style.backgroundColor = color;
+        for (let i = 0; i < cellsArray.length; i++) {
+            if (cellsArray[i].alife) {
+                if (div.classList.contains('row' + cellsArray[i].row) && div.classList.contains('col' + cellsArray[i].col)) {
+                    div.style.backgroundColor = colorPicker.value;
+                }
+            }
         }
     });
 });
 
 next.addEventListener('click', function() {
     nextMove();
+});
+
+play.addEventListener('click', function() {
+    setInterval(nextMove, 100);
+});
+
+stop.addEventListener('click', function() {
+    clearInterval();
 });
