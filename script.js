@@ -1,13 +1,15 @@
 let cellsArray = [
 ];
-
-let play = document.getElementById('play');
-let stop = document.getElementById('stop');
-let next = document.getElementById('next');
+let buttons = {
+    play: document.getElementById('play'),
+    stopp: document.getElementById('stop'),
+    next: document.getElementById('next')
+};
 let game = document.getElementById('game');
 
 let colorPicker = document.getElementById('colorPicker');
 let color = colorPicker.value;
+let intervalId;
 
 function nextMove() {
     let newCellsArray = JSON.parse(JSON.stringify(cellsArray));
@@ -78,14 +80,14 @@ colorPicker.addEventListener('change', function() {
     });
 });
 
-next.addEventListener('click', function() {
+buttons.next.addEventListener('click', function() {
     nextMove();
 });
 
-play.addEventListener('click', function() {
-    setInterval(nextMove, 100);
+buttons.play.addEventListener('click', function() {
+    intervalId = setInterval(nextMove, 100);
 });
 
-stop.addEventListener('click', function() {
-    clearInterval();
+buttons.stopp.addEventListener('click', function() {
+    clearInterval(intervalId);
 });
