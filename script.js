@@ -54,8 +54,8 @@ for (let i = 0; i < 50; i++) {
     for (let j = 0; j < 25; j++) {
         let div = document.createElement('div');
         div.classList.add('square', 'row' + i, 'col' + j);
-        div.style.width = `${(window.innerWidth / 100 * 80) / 55}px`;
-        div.style.height = `${(window.innerWidth / 100 * 80) / 55}px`;
+        div.style.width = `${(window.innerWidth / 100 * 80) / 54}px`;
+        div.style.height = `${(window.innerWidth / 100 * 80) / 54}px`;
         cellsArray.push({row: i, col: j, alife: false});
         div.addEventListener('click', function() {
             if (div.style.backgroundColor === '') {
@@ -99,4 +99,11 @@ buttons.play.addEventListener('click', function() {
 
 buttons.stopp.addEventListener('click', function() {
     clearInterval(intervalId);
+});
+
+window.addEventListener('resize', function() {
+    document.querySelectorAll('.square').forEach(function(div) {
+        div.style.width = `${(window.innerWidth / 100 * 80) / 54}px`;
+        div.style.height = `${(window.innerWidth / 100 * 80) / 54}px`;
+    });
 });
