@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <script defer src="script.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="main-div">
         <div class="game-div">
@@ -17,19 +19,28 @@
                 </div>
             </section>
             <section class="control-panel">
-                <div>
-    
+                <div class="turnviewer">
+                    <h1>Your turn</h1>
                 </div>
                 <div class="setings">
-                    <button class="button-19" id="play">Play</button>
-                    <button class="button-19" id="stop">Stop</button>
-                    <input  type="color" id="colorPicker">
-                    <button class="button-19"id="clear">Clear</button>
-                    <button class="button-19" id="next">Next</button>
-                    <input class="speedmeter" type="range" id="speedRange" min="1" max="100" value="50">
-                </div>
+                    <div class="first-buttons">
+                        <button class="button-19" id="play">Play</button>
+                        <button class="button-19" id="stop">Stop</button>
+                    </div>
+                    <div class="second-buttons">
+                        <button class="button-19" id="clear">Clear</button>
+                        <button class="button-19" id="next">Next</button>
+                    </div>
+                    <div class="third-buttons">
+                        <input type="color" id="colorPicker">
+                        <div class="speedmeter">
+                        <label for="speedRange">Speed</label>
+                        <input class="speedmeter" type="range" id="speedRange" min="1" max="100" value="50">
+                        </div>
+                    </div>
+                </div>  
                 <div>
-    
+
                 </div>
             </section>
         </div>
@@ -39,4 +50,5 @@
     </div>
 
 </body>
+
 </html>
