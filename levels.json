@@ -1,0 +1,62 @@
+[
+    {
+        "level": 1,
+        "name": "Pac-man",
+        "difficulty": 1,
+        "unlocked": true
+    },
+    {
+        "level": 2,
+        "name": "Minecraft",
+        "difficulty": 1,
+        "unlocked": false
+    },
+    {
+        "level": 3,
+        "name": "Mario",
+        "difficulty": 1,
+        "unlocked": false
+    },
+    {
+        "level": 4,
+        "name": "Zelda",
+        "difficulty": 1,
+        "unlocked": false
+    },
+    {
+        "level": 5,
+        "name": "Five Nights at Freddy's",
+        "difficulty": 2,
+        "unlocked": false
+    },
+    {
+        "level": 6,
+        "name": "Geometry Dash",
+        "difficulty": 2,
+        "unlocked": false
+    },
+    {
+        "level": 7,
+        "name": "Kirby",
+        "difficulty": 2,
+        "unlocked": false
+    },
+    {
+        "level": 8,
+        "name": "Splatoon",
+        "difficulty": 2,
+        "unlocked": false
+    },
+    {
+        "level": 9,
+        "name": "Pokemon",
+        "difficulty": 3,
+        "unlocked": false
+    },
+    {
+        "level": 10,
+        "name": "Pablitos Burritos",
+        "difficulty": 3,
+        "unlocked": false
+    }
+]
