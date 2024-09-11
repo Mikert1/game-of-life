@@ -1,5 +1,4 @@
-let cellsArray = [
-];
+let cellsArray = [];
 let buttons = {
     play: document.getElementById('play'),
     stopp: document.getElementById('stop'),
@@ -10,6 +9,10 @@ let game = document.getElementById('game');
 let colorPicker = document.getElementById('colorPicker');
 let color = colorPicker.value;
 let intervalId;
+
+function loadLvl(lvl) {
+
+}
 
 function nextMove() {
     let newCellsArray = JSON.parse(JSON.stringify(cellsArray));
@@ -46,11 +49,13 @@ function nextMove() {
     cellsArray = newCellsArray;
 }
 
-for (let i = 0; i < 30; i++) {
+for (let i = 0; i < 50; i++) {
     let row = document.createElement('div');
-    for (let j = 0; j < 15; j++) {
+    for (let j = 0; j < 25; j++) {
         let div = document.createElement('div');
         div.classList.add('square', 'row' + i, 'col' + j);
+        div.style.width = `${(window.innerWidth / 100 * 80) / 55}px`;
+        div.style.height = `${(window.innerWidth / 100 * 80) / 55}px`;
         cellsArray.push({row: i, col: j, alife: false});
         div.addEventListener('click', function() {
             if (div.style.backgroundColor === '') {
@@ -88,6 +93,7 @@ buttons.next.addEventListener('click', function() {
 });
 
 buttons.play.addEventListener('click', function() {
+    if (intervalId) clearInterval(intervalId);
     intervalId = setInterval(nextMove, 100);
 });
 
