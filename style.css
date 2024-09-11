@@ -5,8 +5,6 @@ body {
     background-color: #f8f9fa;
 }
 .square {
-    width: 10px;
-    height: 10px;
     border: rgb(0, 0, 0) 1px solid;
 }
 
@@ -51,6 +49,7 @@ body {
     align-items: center;
     width: 400px;
     height: 100vh;
+    flex-shrink: 0;
     background-color: gray;
 }
 
