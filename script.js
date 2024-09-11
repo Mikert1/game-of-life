@@ -110,3 +110,9 @@ window.addEventListener('resize', function() {
         resize(div);
     });
 });
+
+document.addEventListener('keydown', function(event) {
+    if (!isNaN(event.key)) {
+        loadLvl(event.key);
+    }
+});
