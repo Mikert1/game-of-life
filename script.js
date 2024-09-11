@@ -10,13 +10,38 @@ let colorPicker = document.getElementById('colorPicker');
 let color = colorPicker.value;
 let intervalId;
 
+let levelActive = false;
+
 function resize(div) {
     div.style.width = `${(window.innerWidth - 400) / 50 - 2.008}px`;
     div.style.height = `${(window.innerWidth - 400) / 50 - 2.008}px`;
 }
 
 function loadLvl(lvl) {
+    levelActive = true;
+    level1 = [
+        {row: 23, col: 12},
 
+        {row: 24, col: 13},
+        {row: 25, col: 13},
+
+        {row: 24, col: 11},
+        {row: 25, col: 11},
+
+        {row: 25, col: 12},
+
+        {row: 26, col: 12},
+    ];
+    cellsArray.forEach(function(cell) {
+        let div = document.querySelector('.row' + cell.row + '.col' + cell.col);
+        if (level1.find(c => c.row === cell.row && c.col === cell.col)) {
+            cell.alife = true;
+            div.style.backgroundColor = color;
+        } else {
+            div.style.backgroundColor = '';
+            cell.alife = false;
+        }
+    });
 }
 
 function nextMove() {
