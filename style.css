@@ -49,6 +49,7 @@ body {
     align-items: center;
     width: 400px;
     height: 100vh;
+    flex-shrink: 0;
     background-color: gray;
 }
 

@@ -10,6 +10,11 @@ let colorPicker = document.getElementById('colorPicker');
 let color = colorPicker.value;
 let intervalId;
 
+function resize(div) {
+    div.style.width = `${(window.innerWidth - 400) / 50 - 2.008}px`;
+    div.style.height = `${(window.innerWidth - 400) / 50 - 2.008}px`;
+}
+
 function loadLvl(lvl) {
 
 }
@@ -54,8 +59,7 @@ for (let i = 0; i < 50; i++) {
     for (let j = 0; j < 25; j++) {
         let div = document.createElement('div');
         div.classList.add('square', 'row' + i, 'col' + j);
-        div.style.width = `${(window.innerWidth / 100 * 80) / 54}px`;
-        div.style.height = `${(window.innerWidth / 100 * 80) / 54}px`;
+        resize(div);
         cellsArray.push({row: i, col: j, alife: false});
         div.addEventListener('click', function() {
             if (div.style.backgroundColor === '') {
@@ -103,7 +107,6 @@ buttons.stopp.addEventListener('click', function() {
 
 window.addEventListener('resize', function() {
     document.querySelectorAll('.square').forEach(function(div) {
-        div.style.width = `${(window.innerWidth / 100 * 80) / 54}px`;
-        div.style.height = `${(window.innerWidth / 100 * 80) / 54}px`;
+        resize(div);
     });
 });
