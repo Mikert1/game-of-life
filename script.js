@@ -5,6 +5,11 @@ let buttons = {
     next: document.getElementById('next'),
     speedRange: document.getElementById('speedRange')
 };
+
+let displays = {
+    moves: document.getElementById('moves'),
+    level: document.getElementById('level')
+};
 let game = document.getElementById('game');
 
 let colorPicker = document.getElementById('colorPicker');
@@ -25,9 +30,11 @@ function afterLvl() {
     console.log('Level completed');
     levelActive = false;
     somethingChanged = false;
+    moves = 0;
 }
 
 function loadLvl(lvl) {
+    moves = 0;
     levelActive = true;
     somethingChanged = false;
     if (lvl === '1') {
@@ -64,6 +71,9 @@ function loadLvl(lvl) {
             cell.alife = false;
         }
     });
+    speed = speedRange.value;
+    if (intervalId) clearInterval(intervalId);
+    intervalId = setInterval(nextMove, (100 - speed) * 10);
 }
 
 function cheackForCompletion() {
@@ -114,6 +124,7 @@ function nextMove() {
     });
 
     cellsArray = newCellsArray;
+    displays.moves.innerText = "Turns taken:" + moves;
     cheackForCompletion();
 }
 
@@ -125,6 +136,7 @@ for (let i = 0; i < 50; i++) {
         resize(div);
         cellsArray.push({row: i, col: j, alife: false});
         div.addEventListener('click', function() {
+            moves++;
             if (div.style.backgroundColor === '') {
                 color = colorPicker.value;
                 div.style.backgroundColor = color;
