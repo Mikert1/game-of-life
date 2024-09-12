@@ -12,13 +12,19 @@ let color = colorPicker.value;
 let intervalId;
 
 let levelActive = false;
-let somethingChanged = false;
+let moves = 0;
 
 let speed = speedRange.value;
 
 function resize(div) {
     div.style.width = `${(window.innerWidth - 400) / 50 - 2.008}px`;
     div.style.height = `${(window.innerWidth - 400) / 50 - 2.008}px`;
+}
+
+function afterLvl() {
+    console.log('Level completed');
+    levelActive = false;
+    somethingChanged = false;
 }
 
 function loadLvl(lvl) {
@@ -60,16 +66,20 @@ function loadLvl(lvl) {
     });
 }
 
-setInterval(function() {
-    // if (levelActive) {
-    //     forEach(cellsArray, function(cell) {
-    //         // if the if active 
-    //         if (cell.alife) {
-    //             somethingChanged = true;
-    //         }
-    //     });
-    // }
-}, 500);
+function cheackForCompletion() {
+    let somethingChanged = false;
+    if (levelActive) {
+        cellsArray.forEach(function(cell) {
+            if (cell.alife == true) {
+                somethingChanged = true;
+                return;
+            }
+        });
+        if (!somethingChanged) {
+            afterLvl();
+        }
+    }
+}
 
 function nextMove() {
     let newCellsArray = JSON.parse(JSON.stringify(cellsArray));
@@ -104,6 +114,7 @@ function nextMove() {
     });
 
     cellsArray = newCellsArray;
+    cheackForCompletion();
 }
 
 for (let i = 0; i < 50; i++) {
