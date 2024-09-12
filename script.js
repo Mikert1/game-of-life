@@ -8,7 +8,8 @@ let buttons = {
 
 let displays = {
     moves: document.getElementById('moves'),
-    level: document.getElementById('level')
+    level: document.getElementById('level'),
+    whatisHappening: document.getElementById('whatisHappening')
 };
 let game = document.getElementById('game');
 
@@ -31,9 +32,11 @@ function afterLvl() {
     levelActive = false;
     somethingChanged = false;
     moves = 0;
+    displays.whatisHappening.innerText = 'Level completed';
 }
 
 function loadLvl(lvl) {
+    displays.whatisHappening.innerText = 'Level ' + lvl;
     moves = 0;
     levelActive = true;
     somethingChanged = false;
@@ -149,7 +152,6 @@ for (let i = 0; i < 50; i++) {
                 cellsArray[cellIndex].alife = false;
             }
         });
-        
         row.appendChild(div);
     }
     game.appendChild(row);
