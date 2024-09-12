@@ -8,7 +8,7 @@ let buttons = {
 
 let displays = {
     moves: document.getElementById('moves'),
-    level: document.getElementById('level'),
+    highscore: document.getElementById('highscore'),
     whatisHappening: document.getElementById('whatisHappening')
 };
 let game = document.getElementById('game');
@@ -17,10 +17,12 @@ let colorPicker = document.getElementById('colorPicker');
 let color = colorPicker.value;
 let intervalId;
 
-let levelActive = false;
+let currentLevel = NaN;
 let moves = 0;
 
 let speed = speedRange.value;
+
+let levelData = [];
 
 function resize(div) {
     div.style.width = `${(window.innerWidth - 400) / 50 - 2.008}px`;
@@ -29,16 +31,51 @@ function resize(div) {
 
 function afterLvl() {
     console.log('Level completed');
-    levelActive = false;
     somethingChanged = false;
-    moves = 0;
     displays.whatisHappening.innerText = 'Level completed';
+    for (let i = 0; i < levelData.length; i++) {
+        if (levelData[i].level == currentLevel) {
+            console.log('Level ' + currentLevel + ' completed in ' + moves + ' moves');
+            levelData[i].completed = true;
+            // if higher then current
+            if (levelData[i].highscore > moves || isNaN(levelData[i].highscore)) {
+                levelData[i].highscore = moves;
+                displays.highscore.innerText = 'Highscore: ' + moves;
+            }
+            writeData();
+            moves = 0;
+            currentLevel = NaN;
+            return;
+        }
+    }
 }
+function loadData() {
+    let data = JSON.parse(localStorage.getItem('levelData13'));
+    if (data) {
+        levelData = data;
+        console.log( levelData);
+    } else {
+        for (let i = 1; i < 10; i++) {
+            levelData.push({ level: i, completed: false, highscore: NaN });
+        }
+        writeData();
+    }
+}
+
+function writeData() {
+    localStorage.setItem('levelData13', JSON.stringify(levelData));
+}
+loadData()
 
 function loadLvl(lvl) {
     displays.whatisHappening.innerText = 'Level ' + lvl;
     moves = 0;
-    levelActive = true;
+    currentLevel = lvl;
+    for (let i = 0; i < levelData.length; i++) {
+        if (levelData[i].level == lvl) {
+            displays.highscore.innerText = 'Highscore: ' + levelData[i].highscore;
+        }
+    }
     somethingChanged = false;
     if (lvl === '1') {
         level = [
@@ -81,7 +118,7 @@ function loadLvl(lvl) {
 
 function cheackForCompletion() {
     let somethingChanged = false;
-    if (levelActive) {
+    if (!isNaN(currentLevel)) {
         cellsArray.forEach(function(cell) {
             if (cell.alife == true) {
                 somethingChanged = true;
