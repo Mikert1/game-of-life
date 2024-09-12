@@ -61,15 +61,15 @@ function loadLvl(lvl) {
 }
 
 setInterval(function() {
-    if (levelActive) {
-        forEach(cellsArray, function(cell) {
-            // if the if active 
-            if (cell.alife) {
-                somethingChanged = true;
-            }
-        });
-    }
-}, 1000);
+    // if (levelActive) {
+    //     forEach(cellsArray, function(cell) {
+    //         // if the if active 
+    //         if (cell.alife) {
+    //             somethingChanged = true;
+    //         }
+    //     });
+    // }
+}, 500);
 
 function nextMove() {
     let newCellsArray = JSON.parse(JSON.stringify(cellsArray));
@@ -150,7 +150,15 @@ buttons.next.addEventListener('click', function() {
 
 buttons.play.addEventListener('click', function() {
     if (intervalId) clearInterval(intervalId);
-    intervalId = setInterval(nextMove, 100);
+    intervalId = setInterval(nextMove, (100 - speed) * 10);
+});
+
+speedRange.addEventListener('change', function() {
+    speed = speedRange.value;
+    if (intervalId) {
+        clearInterval(intervalId);
+        intervalId = setInterval(nextMove, (100 - speed) * 10);
+    }
 });
 
 buttons.stopp.addEventListener('click', function() {
