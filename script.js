@@ -2,7 +2,8 @@ let cellsArray = [];
 let buttons = {
     play: document.getElementById('play'),
     stopp: document.getElementById('stop'),
-    next: document.getElementById('next')
+    next: document.getElementById('next'),
+    speedRange: document.getElementById('speedRange')
 };
 let game = document.getElementById('game');
 
@@ -11,6 +12,9 @@ let color = colorPicker.value;
 let intervalId;
 
 let levelActive = false;
+let somethingChanged = false;
+
+let speed = speedRange.value;
 
 function resize(div) {
     div.style.width = `${(window.innerWidth - 400) / 50 - 2.008}px`;
@@ -19,22 +23,34 @@ function resize(div) {
 
 function loadLvl(lvl) {
     levelActive = true;
-    level1 = [
-        {row: 23, col: 12},
+    somethingChanged = false;
+    if (lvl === '1') {
+        level = [
+            {row: 23, col: 12},
 
-        {row: 24, col: 13},
-        {row: 25, col: 13},
+            {row: 24, col: 13},
+            {row: 25, col: 13},
 
-        {row: 24, col: 11},
-        {row: 25, col: 11},
+            {row: 24, col: 11},
+            {row: 25, col: 11},
 
-        {row: 25, col: 12},
+            {row: 25, col: 12},
 
-        {row: 26, col: 12},
-    ];
+            {row: 26, col: 12},
+        ];
+    } else if (lvl === '2') {
+    } else if (lvl === '3') {
+    } else if (lvl === '4') {
+    } else if (lvl === '5') {
+    } else if (lvl === '6') {
+    } else if (lvl === '7') {
+    } else if (lvl === '8') {
+    } else if (lvl === '9') {
+    } else if (lvl === '0') {
+    }
     cellsArray.forEach(function(cell) {
         let div = document.querySelector('.row' + cell.row + '.col' + cell.col);
-        if (level1.find(c => c.row === cell.row && c.col === cell.col)) {
+        if (level.find(c => c.row === cell.row && c.col === cell.col)) {
             cell.alife = true;
             div.style.backgroundColor = color;
         } else {
@@ -43,6 +59,17 @@ function loadLvl(lvl) {
         }
     });
 }
+
+setInterval(function() {
+    if (levelActive) {
+        forEach(cellsArray, function(cell) {
+            // if the if active 
+            if (cell.alife) {
+                somethingChanged = true;
+            }
+        });
+    }
+}, 1000);
 
 function nextMove() {
     let newCellsArray = JSON.parse(JSON.stringify(cellsArray));
