@@ -197,8 +197,9 @@ body {
 .card{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     margin-top: 20px;
-    background-color: #1CB0F6;
+    height: 70px;
 }
 .card div {
     color: white;
@@ -209,6 +210,18 @@ body {
 .card div:first-child p {
     margin: 10px;
 }
-.card p:nth-child() {
-    color: yellow;
+.card p:nth-child(2) {
+    color: white;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.lock {
+    position: absolute;
+    width: auto;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

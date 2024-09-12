@@ -3,60 +3,70 @@
         "level": 1,
         "name": "Pac-man",
         "difficulty": 1,
-        "unlocked": true
+        "unlocked": true,
+        "img": "pacmanbg.png"
     },
     {
         "level": 2,
         "name": "Minecraft",
         "difficulty": 1,
-        "unlocked": false
+        "unlocked": false,
+        "img": "Mcbg.png"
     },
     {
         "level": 3,
         "name": "Mario",
         "difficulty": 1,
-        "unlocked": false
+        "unlocked": false,
+        "img": "mariobg.png"
     },
     {
         "level": 4,
         "name": "Zelda",
         "difficulty": 1,
-        "unlocked": false
+        "unlocked": false,
+        "img": "zeldabg.png"
     },
     {
         "level": 5,
         "name": "Five Nights at Freddy's",
         "difficulty": 2,
-        "unlocked": false
+        "unlocked": false,
+        "img": "fnafbg.png"
     },
     {
         "level": 6,
         "name": "Geometry Dash",
         "difficulty": 2,
-        "unlocked": false
+        "unlocked": false,
+        "img": "gmdbg.png"
     },
     {
         "level": 7,
         "name": "Kirby",
         "difficulty": 2,
-        "unlocked": false
+        "unlocked": false,
+        "img": "kirbybg.png"
     },
     {
         "level": 8,
         "name": "Splatoon",
         "difficulty": 2,
-        "unlocked": false
+        "unlocked": false,
+        "img": "splatoonbg.png"
     },
     {
         "level": 9,
-        "name": "Pokemon",
+        "name": "Pokémon",
         "difficulty": 3,
-        "unlocked": false
+        "unlocked": false,
+        "img": "pokemonbg.png"
     },
     {
         "level": 10,
         "name": "Pablitos Burritos",
         "difficulty": 3,
-        "unlocked": false
+        "unlocked": false,
+        "img": "buritobg.png"
     }
 ]
