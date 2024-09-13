@@ -2,7 +2,7 @@ body {
     font-family: din-round, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #CCD5D9;
+    background-color: #e2f4f8;
 }
 
 .square {
@@ -36,15 +36,15 @@ body {
     flex-direction: row;
     align-items: center;
     height: 20vh;
-    background-color: #8A9EA6;
+    background-color: #75cede;
     justify-content: space-around;
 }
 
 .turnviewer {
     display: flex;
-    background-color: #667353;
+    background-color: #0cadd7;
     padding: 0px 20px;
-    border: #667353 solid 3px;
+    border: #2b51a4 solid 3px;
     color: rgb(255, 255, 255);
     font-size: 2rem;
 }
@@ -54,9 +54,9 @@ body {
     flex-direction: column;
     right: 32%;
     top: 83%;
-    background-color: #667353;
+    background-color: #0cadd7;
     padding: 0px 20px;
-    border: #667353 solid 3px;
+    border: #2b51a4 solid 3px;
     color: rgb(255, 255, 255);
     font-size: 1rem;
 }
@@ -64,9 +64,9 @@ body {
 .objective {
     display: flex;
     flex-direction: column;
-    background-color: #667353;
+    background-color: #0cadd7;
     padding: 3px 20px;
-    border: #667353 solid 3px;
+    border: #2b51a4 solid 3px;
     color: rgb(255, 255, 255);
 }
 
@@ -83,12 +83,12 @@ body {
     width: 400px;
     height: 100vh;
     flex-shrink: 0;
-    background-color: #8A9EA6;
+    background-color: #75cede;
 }
 
 .button-19 {
     width: 100%;
-    background-color: #667353;
+    background-color: #0cadd7;
     border: solid transparent;
     border-radius: 16px;
     border-width: 0 0 4px;
@@ -115,7 +115,7 @@ body {
 
 .button-19:after {
     background-clip: padding-box;
-    background-color: #667353;
+    background-color: #0cadd7;
     border: solid transparent;
     border-radius: 16px;
     border-width: 0 0 4px;
@@ -171,14 +171,14 @@ body {
 
 .speedmeter {
     width: 10rem;
-    accent-color: #8A9EA6;
+    accent-color: #ffffff;
 }
 
 #colorPicker {
     width: 100%;
     height: 3.5rem;
-    background-color: #667353;
-    border-color: #667353;
+    background-color: #0cadd7;
+    border-color: #2b51a4;
 }
 
 .third-buttons label {
@@ -191,8 +191,8 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: #667353;
-    border: #667353 solid 3px;
+    background-color: #0cadd7;
+    border: #2b51a4 solid 3px;
 }
 
 .card {
