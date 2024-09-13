@@ -99,8 +99,13 @@ async function placing() {
 placing();
 
 function resize(div) {
-    div.style.width = `${(window.innerWidth - 400) / 50 - 2.008}px`;
-    div.style.height = `${(window.innerWidth - 400) / 50 - 2.008}px`;
+    if (window.innerWidth < 768) {
+        div.style.width = `${(window.innerWidth) / 50 - 2.008}px`;
+        div.style.height = `${(window.innerWidth) / 50 - 2.008}px`;
+    } else {
+        div.style.width = `${(window.innerWidth - 400) / 50 - 2.008}px`;
+        div.style.height = `${(window.innerWidth - 400) / 50 - 2.008}px`;
+    }
 }
 
 function afterLvl() {
