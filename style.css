@@ -267,3 +267,55 @@ background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgb(109, 109, 109, 0) 
     position: absolute;
     z-index: 2;
 }
+
+@media (max-width: 768px) {
+    .main-div {
+        flex-direction: column;
+    }
+    .side-bar {
+        width: 100%;
+        height: auto;
+    }
+
+    .control-panel {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .game-div {
+        height: auto;
+    }
+
+    .game {
+        height: 60vh;
+    }
+
+    .turnviewer, .Turnsinfo, .objective {
+        font-size: 1.5rem;
+        padding: 10px;
+    }
+
+    .button-19 {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    .card {
+        flex-direction: column;
+        height: auto;
+        width: 100%;
+    }
+
+    .card div {
+        margin: 5px;
+    }
+
+    .card p:nth-child(3), .card p:nth-child(2) {
+        margin-right: 10px;
+    }
+
+    .lock {
+        top: 5px;
+        left: calc(50% - 25px);
+    }
+}
