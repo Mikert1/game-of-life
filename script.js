@@ -3,7 +3,8 @@ let buttons = {
     play: document.getElementById('play'),
     stopp: document.getElementById('stop'),
     next: document.getElementById('next'),
-    speedRange: document.getElementById('speedRange')
+    speedRange: document.getElementById('speedRange'),
+    replay: document.getElementById('replay')
 };
 
 let displays = {
@@ -295,6 +296,12 @@ window.addEventListener('resize', function() {
     document.querySelectorAll('.square').forEach(function(div) {
         resize(div);
     });
+});
+
+replay.addEventListener('click', function() {
+    if (!isNaN(currentLevel)) {
+        loadLvl(currentLevel);
+    }
 });
 
 document.addEventListener('keydown', function(event) {
