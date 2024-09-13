@@ -48,6 +48,7 @@ async function loadData() {
 async function placing() {
     await loadData()
     let side = document.getElementById('side');
+    side.innerHTML = '';
 
     console.log(levelData);
     levelData.forEach((info) => {
@@ -129,6 +130,7 @@ function afterLvl() {
             }
             console.log(levelData[i].highscore);
             writeData();
+            placing();
             moves = 0;
             currentLevel = NaN;
             return;
@@ -140,6 +142,7 @@ function loadLvl(lvl) {
     displays.whatisHappening.innerText = 'Level ' + lvl;
     moves = 0;
     currentLevel = lvl;
+    let level = [];
     console.log(lvl);
     for (let i = 0; i < levelData.length; i++) {
         if (levelData[i].level == lvl) {
@@ -161,7 +164,7 @@ function loadLvl(lvl) {
 
             {row: 26, col: 12},
         ];
-    } else if (lvl === '2') {
+    } else if (lvl == 2) {
         level = [
             {row: 23, col: 12},
             {row: 23, col: 13},
@@ -177,7 +180,7 @@ function loadLvl(lvl) {
             {row: 26, col: 12},
             {row: 26, col: 13},
         ];
-    } else if (lvl === '3') {
+    } else if (lvl == 3) {
         level = [
             { row: 23, col: 12 },
             { row: 23, col: 13 },
@@ -195,13 +198,13 @@ function loadLvl(lvl) {
             { row: 23, col: 7 },
             { row: 23, col: 6 },
         ];
-    } else if (lvl === '4') {
-    } else if (lvl === '5') {
-    } else if (lvl === '6') {
-    } else if (lvl === '7') {
-    } else if (lvl === '8') {
-    } else if (lvl === '9') {
-    } else if (lvl === '0') {
+    } else if (lvl == 4) {
+    } else if (lvl == 5) {
+    } else if (lvl == 6) {
+    } else if (lvl == 7) {
+    } else if (lvl == 8) {
+    } else if (lvl == 9) {
+    } else if (lvl == 10) {
     }
     cellsArray.forEach(function(cell) {
         let div = document.querySelector('.row' + cell.row + '.col' + cell.col);
