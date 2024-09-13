@@ -174,21 +174,22 @@ function loadLvl(lvl) {
         ];
     } else if (lvl === '3') {
         level = [
-            {row: 23, col: 12},
-            {row: 23, col: 13},
+            { row: 23, col: 12 },
+            { row: 23, col: 13 },
+            { row: 23, col: 11 },
 
-            {row: 24, col: 11},
-            {row: 24, col: 14},
+            { row: 25, col: 9 },
+            { row: 26, col: 9 },
+            { row: 27, col: 9 },
 
-            {row: 25, col: 11},
-            {row: 25, col: 14},
+            { row: 21, col: 9 },
+            { row: 20, col: 9 },
+            { row: 19, col: 9 },
 
-            {row: 26, col: 11},
-            {row: 26, col: 14},
-
-            {row: 27, col: 12},
-            {row: 27, col: 13},
-        ];3
+            { row: 23, col: 5 },
+            { row: 23, col: 7 },
+            { row: 23, col: 6 },
+        ];
     } else if (lvl === '4') {
     } else if (lvl === '5') {
     } else if (lvl === '6') {
