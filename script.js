@@ -104,8 +104,14 @@ function afterLvl() {
     for (let i = 0; i < levelData.length; i++) {
         if (levelData[i].level == currentLevel) {
             console.log('Level ' + currentLevel + ' completed in ' + moves + ' moves');
-            levelData[i].unlocked = true;
-            console.log(levelData[i].highscore);
+            for (let j = 0; j < levelData.length; j++) {
+                if (levelData[j].level == parseInt(currentLevel) + 1) {
+                    levelData[j].unlocked = true;
+                    console.log('Level ' + (currentLevel + 1) + ' unlocked');
+                    writeData();
+                    break;
+                }
+            }
             if (levelData[i].highscore > moves || levelData[i].highscore == null) {
                 levelData[i].highscore = moves;
                 displays.highscore.innerText = 'Highscore: ' + moves;
