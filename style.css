@@ -22,7 +22,7 @@ body {
 .game-div {
     display: flex;
     flex-direction: column;
-    
+
     flex-grow: 1;
     height: 100vh;
 }
@@ -54,9 +54,9 @@ body {
     flex-direction: column;
     right: 32%;
     top: 83%;
-    background-color: rgb(0, 167, 250);
+    background-color: #667353;
     padding: 0px 20px;
-    border: #007ab3 solid 3px;
+    border: #667353 solid 3px;
     color: rgb(255, 255, 255);
     font-size: 1rem;
 }
@@ -64,9 +64,9 @@ body {
 .objective {
     display: flex;
     flex-direction: column;
-    background-color: rgb(0, 167, 250);
+    background-color: #667353;
     padding: 3px 20px;
-    border: #007ab3 solid 3px;
+    border: #667353 solid 3px;
     color: rgb(255, 255, 255);
 }
 
@@ -83,12 +83,12 @@ body {
     width: 400px;
     height: 100vh;
     flex-shrink: 0;
-    background-color: gray;
+    background-color: #8A9EA6;
 }
 
 .button-19 {
     width: 100%;
-    background-color: #1899D6;
+    background-color: #667353;
     border: solid transparent;
     border-radius: 16px;
     border-width: 0 0 4px;
@@ -115,7 +115,7 @@ body {
 
 .button-19:after {
     background-clip: padding-box;
-    background-color: #1CB0F6;
+    background-color: #667353;
     border: solid transparent;
     border-radius: 16px;
     border-width: 0 0 4px;
@@ -171,14 +171,14 @@ body {
 
 .speedmeter {
     width: 10rem;
-    accent-color: #1899D6;
+    accent-color: #8A9EA6;
 }
 
 #colorPicker {
     width: 100%;
     height: 3.5rem;
-    background-color: #1CB0F6;
-    border-color: #1CB0F6;
+    background-color: #667353;
+    border-color: #667353;
 }
 
 .third-buttons label {
@@ -191,25 +191,43 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: #1CB0F6;
-    border: #1CB0F6 solid 3px;
+    background-color: #667353;
+    border: #667353 solid 3px;
 }
-.card{
+
+.card {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-top: 20px;
     height: 70px;
+    width: 350px;
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
 }
+
 .card div {
     color: white;
     margin: 10px;
     display: flex;
     margin: 10px;
+    align-items: center;
 }
+
 .card div:first-child p {
     margin: 10px;
 }
+
+.card p:nth-child(3) {
+    color: rgb(255, 255, 255);
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+background: radial-gradient(circle, rgba(2, 0, 36, 1) 0%, rgb(109, 109, 109, 0) 70%);
+}
+
 .card p:nth-child(2) {
     color: white;
     margin-right: 20px;
@@ -224,4 +242,28 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    top: 10px;
+    left: calc(50% - 25px);
+}
+
+.card.locked {
+    position: relative;
+}
+
+.card.locked::before {
+    content: '';
+    /* Creates an empty pseudo-element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.5);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.card.locked .lock {
+    position: absolute;
+    z-index: 2;
 }
