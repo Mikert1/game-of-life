@@ -105,10 +105,12 @@ function afterLvl() {
         if (levelData[i].level == currentLevel) {
             console.log('Level ' + currentLevel + ' completed in ' + moves + ' moves');
             levelData[i].unlocked = true;
-            if (levelData[i].highscore > moves || isNaN(levelData[i].highscore)) {
+            console.log(levelData[i].highscore);
+            if (levelData[i].highscore > moves || levelData[i].highscore == null) {
                 levelData[i].highscore = moves;
                 displays.highscore.innerText = 'Highscore: ' + moves;
             }
+            console.log(levelData[i].highscore);
             writeData();
             moves = 0;
             currentLevel = NaN;

@@ -4,69 +4,79 @@
         "name": "Pac-man",
         "difficulty": 1,
         "unlocked": true,
-        "img": "pacmanbg.png"
+        "img": "pacmanbg.png",
+        "highscore": null
     },
     {
         "level": 2,
         "name": "Minecraft",
         "difficulty": 1,
         "unlocked": false,
-        "img": "Mcbg.png"
+        "img": "Mcbg.png",
+        "highscore": null
     },
     {
         "level": 3,
         "name": "Mario",
         "difficulty": 1,
         "unlocked": false,
-        "img": "mariobg.png"
+        "img": "mariobg.png",
+        "highscore": null
     },
     {
         "level": 4,
         "name": "Zelda",
         "difficulty": 1,
         "unlocked": false,
-        "img": "zeldabg.png"
+        "img": "zeldabg.png",
+        "highscore": null
     },
     {
         "level": 5,
         "name": "Five Nights at Freddy's",
         "difficulty": 2,
         "unlocked": false,
-        "img": "fnafbg.png"
+        "img": "fnafbg.png",
+        "highscore": null
     },
     {
         "level": 6,
         "name": "Geometry Dash",
         "difficulty": 2,
         "unlocked": false,
-        "img": "gmdbg.png"
+        "img": "gmdbg.png",
+        "highscore": null
     },
     {
         "level": 7,
         "name": "Kirby",
         "difficulty": 2,
         "unlocked": false,
-        "img": "kirbybg.png"
+        "img": "kirbybg.png",
+        "highscore": null
     },
     {
         "level": 8,
         "name": "Splatoon",
         "difficulty": 2,
         "unlocked": false,
-        "img": "splatoonbg.png"
+        "img": "splatoonbg.png",
+        "highscore": null
     },
     {
         "level": 9,
         "name": "Pokémon",
         "difficulty": 3,
         "unlocked": false,
-        "img": "pokemonbg.png"
+        "img": "pokemonbg.png",
+        "highscore": null
     },
     {
         "level": 10,
         "name": "Pablitos Burritos",
         "difficulty": 3,
         "unlocked": false,
-        "img": "buritobg.png"
+        "img": "buritobg.png",
+        "highscore": null
     }
 ]
