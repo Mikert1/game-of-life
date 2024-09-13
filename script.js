@@ -85,6 +85,11 @@ async function placing() {
         cardInCard.appendChild(difficulty);
         card.appendChild(cardInCard);
         card.appendChild(name);
+        card.addEventListener('click', function() {
+            if (info.unlocked) {
+                loadLvl(parseInt(info.level));
+            }
+        });
 
         side.appendChild(card);
     });
@@ -129,13 +134,14 @@ function loadLvl(lvl) {
     displays.whatisHappening.innerText = 'Level ' + lvl;
     moves = 0;
     currentLevel = lvl;
+    console.log(lvl);
     for (let i = 0; i < levelData.length; i++) {
         if (levelData[i].level == lvl) {
             displays.highscore.innerText = 'Highscore: ' + levelData[i].highscore;
         }
     }
     somethingChanged = false;
-    if (lvl === '1') {
+    if (lvl == 1) {
         level = [
             {row: 23, col: 12},
 
